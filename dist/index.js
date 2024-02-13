@@ -29322,7 +29322,7 @@ async function preparePipelineResults(inputs) {
          core.info(`test ${finding.violates_policy}   ${finding.finding_status.status}   ${finding.finding_status.resolution}   ${finding.finding_status.resolution_status }`);
         core.info(finding.violates_policy === true && finding.finding_status.status === 'CLOSED' &&  (finding.finding_status.resolution === 'POTENTIAL_FALSE_POSITIVE' ||
                 finding.finding_status.resolution === 'MITIGATED') &&  finding.finding_status.resolution_status === 'APPROVED');
-        return (finding.violates_policy === true &&
+        return (finding.violates_policy === false &&
             finding.finding_status.status === 'CLOSED' &&
             (finding.finding_status.resolution === 'POTENTIAL_FALSE_POSITIVE' ||
                 finding.finding_status.resolution === 'MITIGATED') &&
