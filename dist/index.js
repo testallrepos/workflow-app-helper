@@ -29326,7 +29326,7 @@ async function preparePipelineResults(inputs) {
             finding.finding_status.status === 'CLOSED' &&
             (finding.finding_status.resolution === 'POTENTIAL_FALSE_POSITIVE' ||
                 finding.finding_status.resolution === 'MITIGATED') &&
-            finding.finding_status.resolution_status === 'Proposed');
+            finding.finding_status.resolution_status === 'APPROVED');
     });
     core.info(`Mitigated policy findings: ${mitigatedPolicyFindings.length}`);
     const filteredFindingsArray = findingsArray.filter((finding) => {
