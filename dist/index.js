@@ -29319,11 +29319,12 @@ async function preparePipelineResults(inputs) {
     }
     core.info(`Policy findings: ${policyFindings.length}`);
     const mitigatedPolicyFindings = policyFindings.filter((finding) => {
-        core.info(`finding.finding_status.resolution ${finding.finding_status.resolution}`);
+         core.info(`test ${finding.violates_policy}   ${finding.finding_status.status}   ${finding.finding_status.resolution}   ${finding.finding_status.resolution_status }`);
         return (finding.violates_policy === true &&
             finding.finding_status.status === 'CLOSED' &&
             (finding.finding_status.resolution === 'POTENTIAL_FALSE_POSITIVE' ||
-                finding.finding_status.resolution === 'MITIGATED') );
+                finding.finding_status.resolution === 'MITIGATED') &&
+            finding.finding_status.resolution_status === 'APPROVED');
     });
     core.info(`Mitigated policy findings: ${mitigatedPolicyFindings.length}`);
     const filteredFindingsArray = findingsArray.filter((finding) => {
