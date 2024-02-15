@@ -29333,9 +29333,9 @@ async function preparePipelineResults(inputs) {
          core.info(`findingDATAAA    ${finding.files.source_file}  `);  
         return !mitigatedPolicyFindings.some((mitigatedFinding) => {
             
-              core.info(`mitigatedFindingDATA    ${mitigatedFinding.finding_details}`);  
+              core.info(`mitigatedFindingDATA    ${JSON.stringfy(mitigatedFinding.finding_details)}`);  
             
-             core.info(`test ${finding.files.source_file.file}   ${mitigatedFinding.finding_details.file_path}`);  
+             core.info(`test ${finding.files.source_file.file}   ${JSON.stringfy(mitigatedFinding.finding_details.file_path)}`);  
                core.info(` cwe.id ${finding.cwe_id}   ${mitigatedFinding.finding_details.cwe.id}`); 
          core.info(` LINE_NUMBER_SLOP.id ${finding.files.source_file.line - mitigatedFinding.finding_details.file_line_number}   ${LINE_NUMBER_SLOP}`); 
             
