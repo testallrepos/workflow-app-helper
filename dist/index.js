@@ -29331,6 +29331,10 @@ async function preparePipelineResults(inputs) {
     core.info(`Mitigated policy findings: ${mitigatedPolicyFindings.length}`);
     const filteredFindingsArray = findingsArray.filter((finding) => {
         return !mitigatedPolicyFindings.some((mitigatedFinding) => {
+            core.info(finding.files.source_file.file,"=== file_path", mitigatedFinding.finding_details.file_path);
+             core.info(finding.cwe_id,"=== cwe.id", mitigatedFinding.finding_details.cwe.id);
+            core.info(Math.abs(finding.files.source_file.line - mitigatedFinding.finding_details.file_line_number) <= LINE_NUMBER_SLOP);
+            
             return (finding.files.source_file.file === mitigatedFinding.finding_details.file_path &&
                 +finding.cwe_id === mitigatedFinding.finding_details.cwe.id &&
                 Math.abs(finding.files.source_file.line - mitigatedFinding.finding_details.file_line_number) <= LINE_NUMBER_SLOP);
