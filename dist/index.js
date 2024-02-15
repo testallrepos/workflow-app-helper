@@ -29336,13 +29336,13 @@ async function preparePipelineResults(inputs) {
               core.info(`mitigatedFindingDATA    ${JSON.stringify(mitigatedFinding.finding_details)}`); 
             core.info("ISEQUAL");
             
-            core.info(` ${finding.files.source_file.file}  ==  ${mitigatedFinding.finding_details.file_path}`); 
+            core.info(` ${finding.files.source_file.file}  ==  ${mitigatedFinding.finding_details.file_name}`); 
             
-             core.info(`test ${finding.files.source_file.file}   ${mitigatedFinding.finding_details.file_path}`);  
+             core.info(`test ${finding.files.source_file.file}   ${mitigatedFinding.finding_details.file_name}`);  
                core.info(` cwe.id ${finding.cwe_id}   ${mitigatedFinding.finding_details.cwe.id}`); 
          core.info(` LINE_NUMBER_SLOP.id ${finding.files.source_file.line - mitigatedFinding.finding_details.file_line_number}   ${LINE_NUMBER_SLOP}`); 
             
-            return (finding.files.source_file.file === mitigatedFinding.finding_details.file_path &&
+            return (finding.files.source_file.file === mitigatedFinding.finding_details.file_name &&
                 +finding.cwe_id === mitigatedFinding.finding_details.cwe.id &&
                 Math.abs(finding.files.source_file.line - mitigatedFinding.finding_details.file_line_number) <= LINE_NUMBER_SLOP);
         });
