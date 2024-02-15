@@ -29170,7 +29170,7 @@ async function updateChecks(octokit, checksStatic, conclusion, annotations, summ
         conclusion: conclusion,
         output: {
             annotations: annotations,
-            title: 'Veracode Static Code Analysis',
+            title: 'Veracode Static Code Analysis AAAA',
             summary: summary,
         },
     };
