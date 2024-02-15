@@ -29333,6 +29333,7 @@ async function preparePipelineResults(inputs) {
          core.info(`findingDATAAA    ${JSON.stringify(finding.files.source_file)}  `);  
         return !mitigatedPolicyFindings.some((mitigatedFinding) => {
             
+             core.info(`mitigatedFindingFinding    ${JSON.stringify(mitigatedFinding.finding_details)}  `); 
               if(finding.files.source_file.file === mitigatedFinding.finding_details.file_name){
                    core.info(`SOURCE_FILE    ${+finding.cwe_id}  -- ${mitigatedFinding.finding_details.cwe.id}`); 
                    core.info(`MathMath    ${Math.abs(finding.files.source_file.line - mitigatedFinding.finding_details.file_line_number) <= LINE_NUMBER_SLOP}`); 
