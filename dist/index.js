@@ -29309,8 +29309,11 @@ async function preparePipelineResults(inputs) {
     }
     let policyFindings = [];
     try {
-        const application = await (0, application_service_1.getApplicationByName)(inputs.appname, inputs.vid, inputs.vkey);
+        const application = await (0, application_service_1.getApplicationByName)(inputs.appname, inputs.vid, inputs.vid);
+         core.info(`application.guid No application found with name application.guid ${inputs.appname} -- ${inputs.vid} -- ${inputs.vid}     `);
+        
         const applicationGuid = application.guid;
+        core.info(`application.guid No applicationGuid33333 ${applicationGuid}      `);
         policyFindings = await (0, findings_service_1.getApplicationFindings)(applicationGuid, inputs.vid, inputs.vkey);
     }
     catch (error) {
